@@ -1,0 +1,27 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<fstream>
+#include<set>
+using namespace std;
+int main()
+{
+	int n;
+	cin>>n;
+	vector<pair<int,int>>v(n*n);
+	set<int>x;
+	set<int>y;
+	vector<int>ans;
+	for(int i=0;i<n*n;i++)
+		cin>>v[i].first>>v[i].second;
+	for(int i=0;i<n*n;i++)
+		if(!x.count(v[i].first)&&!y.count(v[i].second)){
+			ans.push_back(i+1);
+			x.insert(v[i].first);
+			y.insert(v[i].second);
+		}
+		for(int i=0;i<ans.size();i++)
+			cout<<ans[i]<<" ";
+		cout<<endl;
+	return 0;
+}
