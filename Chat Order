@@ -1,0 +1,25 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<fstream>
+#include<set>
+#include<iomanip>
+using namespace std;
+int main()
+{
+	int n;
+	cin>>n;
+	vector<string>v(n);
+	for(int i=0;i<n;i++)
+		cin>>v[i];
+	vector<string>ans;
+	set<string>add;
+	for(int i=v.size()-1;i>=0;i--)
+		if(!add.count(v[i])){
+			add.insert(v[i]);
+			ans.push_back(v[i]);
+		}
+		for(int i=0;i<ans.size();i++)
+			cout<<ans[i]<<endl;
+	return 0;
+}
